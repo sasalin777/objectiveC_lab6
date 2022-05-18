@@ -21,7 +21,9 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         BOOL gameOn = YES;
         Dice *dice = [Dice new];
+
         while(gameOn) {
+
         NSInteger *dice1 = [dice randomVal1];
         NSInteger *dice2 = [dice randomVal2];
         NSInteger *dice3 = [dice randomVal3];
@@ -32,14 +34,15 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"%li",(long)dice3);
 //        NSLog(@"%li",(long)dice4);
 //        NSLog(@"%li",(long)dice5);
-        
+     
             NSString *inputString = getUserInput(@"\n'roll' to roll the dice\n'hold' to hold a dice\n'rest' to un-hold all dice\n'done' to end the game\n'display' to show current stats");
+        KeepGoing:
                 if ([inputString  isEqual: @"done\n"]) {
                     gameOn = NO;
 
                 } else if ([inputString isEqual: @"roll\n"]) {
-                   // NSLog(@"do things!");
-                    NSLog(@"\nEnter the number of the die:");
+               
+                    NSLog(@"\nEnter the number of the dic:");
                         int inputInt;
                         scanf("%i", &inputInt);
                     switch (inputInt) {
@@ -49,9 +52,8 @@ int main(int argc, const char * argv[]) {
                             //goto KeepGoing;
                         }
                         default: {
-                            NSLog(@"Please input again!(1 - 9)!");
-                            break;
-                            //goto KeepGoing;
+                            NSLog(@"Please input number of dic again(1 - 5)!");
+                            goto KeepGoing;
                         }
                     }
                 }
