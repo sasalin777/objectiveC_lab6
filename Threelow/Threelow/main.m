@@ -19,18 +19,45 @@ NSString *getUserInput(NSString *prompt) {
 }
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        BOOL gameOn = YES;
         Dice *dice = [Dice new];
+        while(gameOn) {
         NSInteger *dice1 = [dice randomVal1];
         NSInteger *dice2 = [dice randomVal2];
         NSInteger *dice3 = [dice randomVal3];
         NSInteger *dice4 = [dice randomVal4];
         NSInteger *dice5 = [dice randomVal5];
-        NSLog(@"%li",(long)dice1);
-        NSLog(@"%li",(long)dice2);
-        NSLog(@"%li",(long)dice3);
-        NSLog(@"%li",(long)dice4);
-        NSLog(@"%li",(long)dice5);
+//        NSLog(@"%li",(long)dice1);
+//        NSLog(@"%li",(long)dice2);
+//        NSLog(@"%li",(long)dice3);
+//        NSLog(@"%li",(long)dice4);
+//        NSLog(@"%li",(long)dice5);
         
+            NSString *inputString = getUserInput(@"\n'roll' to roll the dice\n'hold' to hold a dice\n'rest' to un-hold all dice\n'done' to end the game\n'display' to show current stats");
+                if ([inputString  isEqual: @"done\n"]) {
+                    gameOn = NO;
+
+                } else if ([inputString isEqual: @"roll\n"]) {
+                   // NSLog(@"do things!");
+                    NSLog(@"\nEnter the number of the die:");
+                        int inputInt;
+                        scanf("%i", &inputInt);
+                    switch (inputInt) {
+                            
+                        case 1: {
+                            NSLog(@"%li",(long)dice1);
+                            //goto KeepGoing;
+                        }
+                        default: {
+                            NSLog(@"Please input again!(1 - 9)!");
+                            break;
+                            //goto KeepGoing;
+                        }
+                    }
+                }
+                    
+              
+        }
         
     }
     return 0;
