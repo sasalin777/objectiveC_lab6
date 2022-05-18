@@ -19,8 +19,9 @@ NSString *getUserInput(NSString *prompt) {
 }
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+ 
         BOOL gameOn = YES;
-       
+    reset:
    while(gameOn) {
        Dice *dice = [Dice new];
        NSMutableArray *sotrearr = [dice dicesarr];
@@ -44,23 +45,16 @@ int main(int argc, const char * argv[]) {
        NSLog(@"--  Total Score   --");
        NSLog(@"Score:");
        NSLog(@"--------------------");
-           // NSString *dices5 = [dice randomimage];
-           // NSInteger test = [dice randomvalues];
-            
-////        NSLog(@"%li",(long)dice1);
-//        NSLog(@"%li",(long)dice2);
-//        NSLog(@"%li",(long)dice3);
-//        NSLog(@"%li",(long)dice4);
-//        NSLog(@"%li",(long)dice5);
      
-            NSString *inputString = getUserInput(@"\n'roll' to roll the dice\n'hold' to hold a dice\n'rest' to un-hold all dice\n'done' to end the game\n'display' to show current stats");
+            NSString *inputString = getUserInput(@"\n'roll' to roll the dice\n'hold' to hold a dice\n'reset' to un-hold all dice\n'done' to end the game\n'display' to show current stats");
         KeepGoing:
                 if ([inputString  isEqual: @"done\n"]) {
+                    NSLog(@"Bye-bye.");
                     gameOn = NO;
 
                 } else if ([inputString isEqual: @"roll\n"]) {
                
-//                    NSLog(@"\n %@,%@,%@,%@,%@ \nEnter the number of the dic:",dices1,dices2,dices3,dices4,dices5);
+                    NSLog(@"\nEnter the number of the dic:");
                         int inputInt;
                         scanf("%i", &inputInt);
                     switch (inputInt) {
@@ -75,7 +69,13 @@ int main(int argc, const char * argv[]) {
                             goto KeepGoing;
                         }
                     }
+                } else if ([inputString isEqual: @"hold"]) {
+                    NSLog(@"do hold");
+                    
+                } else if  ([inputString isEqual:@"reset"]) {
+                    goto reset;
                 }
+    
                     
               
         }
