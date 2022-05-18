@@ -21,13 +21,15 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
  
         BOOL gameOn = YES;
+       // NSString *rolldice = @"Y";
     reset:
    while(gameOn) {
        Dice *dice = [Dice new];
        NSMutableArray *sotrearr = [dice dicesarr];
            // NSString *dices =[dice randomimage];
             int i = 1;
-            while(i <= 5){
+       
+       while(i <= 5){
                 Dice *dice = [Dice new];
                 NSString *dices =[dice randomimage];
                 [sotrearr addObject:(dices)];
@@ -38,6 +40,7 @@ int main(int argc, const char * argv[]) {
        NSString *index3 = [sotrearr objectAtIndex:2];
        NSString *index4 = [sotrearr objectAtIndex:3];
        NSString *index5 = [sotrearr objectAtIndex:4];
+   Display:
        NSLog(@"--------------------");
        NSLog(@"--  Current Dice  --");
        NSLog(@"  %@  %@  %@  %@  %@",index1,index2,index3,index4,index5);
@@ -69,12 +72,15 @@ int main(int argc, const char * argv[]) {
                             goto KeepGoing;
                         }
                     }
-                } else if ([inputString isEqual: @"hold"]) {
+                } else if ([inputString isEqual: @"hold\n"]) {
                     NSLog(@"do hold");
                     
-                } else if  ([inputString isEqual:@"reset"]) {
+                } else if  ([inputString isEqual:@"reset\n"]) {
                     goto reset;
+                } else if ([inputString isEqual:@"display\n"]) {
+                    goto Display;
                 }
+       
     
                     
               
