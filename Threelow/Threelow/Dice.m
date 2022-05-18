@@ -13,18 +13,38 @@
 {
     self = [super init];
     if (self) {
-        _randomVal1 = arc4random_uniform(5) + 1;
-        _randomVal2 = arc4random_uniform(5) + 1;
-        _randomVal3 = arc4random_uniform(5) + 1;
-        _randomVal4 = arc4random_uniform(5) + 1;
-        _randomVal5 = arc4random_uniform(5) + 1;
+        _randomvalues = arc4random_uniform(5) + 1;
+        _randomVal1 = _randomimage;
+        _randomVal2 = _randomimage;
+        _randomVal3 = _randomimage;
+        _randomVal4 = _randomimage;
+        _randomVal5 = _randomimage;
     }
     return self;
 }
 
-- (NSInteger) randomizeValues {
-    
-    return 0; 
+- (NSString *) randomimage {
+    switch (_randomvalues) {
+        case 1: {
+            NSLog(@"​⚀");
+        }
+        case 2: {
+            NSLog(@"​⚁");
+        }
+        case 3: {
+            NSLog(@"​⚂");
+        }
+        case 4: {
+            NSLog(@"​⚃");
+        }
+        case 5: {
+            NSLog(@"​⚄");
+        }
+        defalt: {
+            NSLog(@"⚅");
+        }
+    }
+    return _randomimage;
 }
 
 @end

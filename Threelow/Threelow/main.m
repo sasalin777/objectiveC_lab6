@@ -21,14 +21,14 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         BOOL gameOn = YES;
         Dice *dice = [Dice new];
-
+        NSString *dices =[dice randomimage];
+        
         while(gameOn) {
-
-        NSInteger *dice1 = [dice randomVal1];
-        NSInteger *dice2 = [dice randomVal2];
-        NSInteger *dice3 = [dice randomVal3];
-        NSInteger *dice4 = [dice randomVal4];
-        NSInteger *dice5 = [dice randomVal5];
+        NSString *dice1 = [dice randomVal1];
+        NSString *dice2 = [dice randomVal2];
+        NSString *dice3 = [dice randomVal3];
+        NSString *dice4 = [dice randomVal4];
+        NSString *dice5 = [dice randomVal5];
 //        NSLog(@"%li",(long)dice1);
 //        NSLog(@"%li",(long)dice2);
 //        NSLog(@"%li",(long)dice3);
@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]) {
                     switch (inputInt) {
                             
                         case 1: {
-                            NSLog(@"%li",(long)dice1);
+                            NSLog(@"%@",dice1);
                             //goto KeepGoing;
                         }
                         default: {
