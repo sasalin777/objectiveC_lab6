@@ -14,37 +14,43 @@
     self = [super init];
     if (self) {
         _randomvalues = arc4random_uniform(5) + 1;
-        _randomVal1 = _randomimage;
-        _randomVal2 = _randomimage;
-        _randomVal3 = _randomimage;
-        _randomVal4 = _randomimage;
-        _randomVal5 = _randomimage;
+        _dicesarr = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (NSString *) randomimage {
+
     switch (_randomvalues) {
         case 1: {
-            NSLog(@"​⚀");
+            return (@"​⚀");
+            break;
         }
         case 2: {
-            NSLog(@"​⚁");
+            return (@"​⚁");
+            break;
         }
         case 3: {
-            NSLog(@"​⚂");
+            return (@"​⚂");
+            break;
         }
         case 4: {
-            NSLog(@"​⚃");
+            return (@"​⚃");
+            break;
         }
         case 5: {
-            NSLog(@"​⚄");
+            return (@"​⚄");
+            break;
         }
         defalt: {
-            NSLog(@"⚅");
+            return (@"⚅");
+            break;
         }
     }
     return _randomimage;
-}
+       
+    }
+
+
 
 @end

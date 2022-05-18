@@ -20,16 +20,34 @@ NSString *getUserInput(NSString *prompt) {
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         BOOL gameOn = YES;
-        Dice *dice = [Dice new];
-        NSString *dices =[dice randomimage];
-        
-        while(gameOn) {
-        NSString *dice1 = [dice randomVal1];
-        NSString *dice2 = [dice randomVal2];
-        NSString *dice3 = [dice randomVal3];
-        NSString *dice4 = [dice randomVal4];
-        NSString *dice5 = [dice randomVal5];
-//        NSLog(@"%li",(long)dice1);
+       
+   while(gameOn) {
+       Dice *dice = [Dice new];
+       NSMutableArray *sotrearr = [dice dicesarr];
+           // NSString *dices =[dice randomimage];
+            int i = 1;
+            while(i <= 5){
+                Dice *dice = [Dice new];
+                NSString *dices =[dice randomimage];
+                [sotrearr addObject:(dices)];
+                i += 1;
+            }
+       NSString *index1 = [sotrearr objectAtIndex:0];
+       NSString *index2 = [sotrearr objectAtIndex:1];
+       NSString *index3 = [sotrearr objectAtIndex:2];
+       NSString *index4 = [sotrearr objectAtIndex:3];
+       NSString *index5 = [sotrearr objectAtIndex:4];
+       NSLog(@"--------------------");
+       NSLog(@"--  Current Dice  --");
+       NSLog(@"  %@  %@  %@  %@  %@",index1,index2,index3,index4,index5);
+       NSLog(@"");
+       NSLog(@"--  Total Score   --");
+       NSLog(@"Score:");
+       NSLog(@"--------------------");
+           // NSString *dices5 = [dice randomimage];
+           // NSInteger test = [dice randomvalues];
+            
+////        NSLog(@"%li",(long)dice1);
 //        NSLog(@"%li",(long)dice2);
 //        NSLog(@"%li",(long)dice3);
 //        NSLog(@"%li",(long)dice4);
@@ -42,13 +60,14 @@ int main(int argc, const char * argv[]) {
 
                 } else if ([inputString isEqual: @"roll\n"]) {
                
-                    NSLog(@"\nEnter the number of the dic:");
+//                    NSLog(@"\n %@,%@,%@,%@,%@ \nEnter the number of the dic:",dices1,dices2,dices3,dices4,dices5);
                         int inputInt;
                         scanf("%i", &inputInt);
                     switch (inputInt) {
                             
                         case 1: {
-                            NSLog(@"%@",dice1);
+                           // NSLog(@"%li",(long)[dice randomvalues]);
+                          //  NSLog(@"%@", dices1);
                             //goto KeepGoing;
                         }
                         default: {
